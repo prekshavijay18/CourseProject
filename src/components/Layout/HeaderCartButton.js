@@ -1,4 +1,3 @@
-// import {} from "react";
 import React from "react";
 import CartIcon from "../Cart/CartIcon";
 import CartContext from "../../store/cart-context";
@@ -7,12 +6,12 @@ import { useContext, useEffect, useState } from "react";
 
 const HeaderCartButton = (props) => {
   const [btn, setBtn] = useState(false);
-  const cartCtx = useContext(CartContext);
+  const cartCtx = useContext(CartContext); //reevaluated whenever context changes 
   const countCartItem = cartCtx.items.reduce((curCount, item) => {
     return curCount + item.amount;
-  }, 0);
+  }, 0); 
   const { items } = cartCtx;
-  const buttonClasses = `${classes.button} ${btn ? classes.bump : ""}`; //Template literal notation
+  const buttonClasses = `${classes.button} ${btn ? classes.bump : ""}`; //Template literal notation|animation
   useEffect(() => {
     if (items.length === 0) {
       return;
@@ -25,13 +24,15 @@ const HeaderCartButton = (props) => {
         clearTimeout(timer);
     })
   }, [items]);
-  return (
+  return ( //badge- number of items in the cart
+  
+    // pointer func to be executed here on button click
     <button className={buttonClasses} onClick={props.onClick}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
       <span>Your Cart</span>
-      <span className={classes.badge}>{countCartItem}</span>
+      <span className={classes.badge}>{countCartItem}</span> 
     </button>
   );
 };

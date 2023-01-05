@@ -1,10 +1,13 @@
 import { useReducer } from "react";
 import CartContext from "./cart-context";
-
+//manage cart data and provide access to all related components that needs such data
 const defaultCartState = {
   items: [],
   totalAmount: 0,
 };
+//state-last state snapshot
+//action-what user dispatches
+//return new state snapshot
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     const updatedAmount =

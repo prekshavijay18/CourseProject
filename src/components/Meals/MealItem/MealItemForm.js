@@ -1,6 +1,7 @@
 import classes from "./MealItemForm.module.css";
 import Input from "../../UI/Input";
 import { useState, useRef } from "react";
+//form to add more items into the cart
 const MealItemForm = (props)=>
 { 
     const [amtIsValid,setAmtIsValid]=useState(true);
@@ -21,12 +22,12 @@ return <form className={classes.form} onSubmit={submitHandler}>
     ref={amountInputRef}
     label="Amount" input={
         {
-            id: 'amount_' + props.id,
+            id: 'amount_' + props.id, 
             type:"number",
             min:"1",
             max:"5",
             step:"1",
-            defaultValue:"1"
+            defaultValue:"1" //default props| basic validation
         }
     } />
     <button>

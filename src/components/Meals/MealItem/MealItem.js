@@ -4,7 +4,7 @@ import MealItemForm from "./MealItemForm";
 import CartContext from "../../../store/cart-context";
 const MealItem=(props)=>
 {const cartContext= useContext(CartContext);
-    const price = `₹${props.price.toFixed(2)}`;
+    const price = `₹${props.price.toFixed(2)}`;//output symbol and dynamic value 
     const addToCartHandler= amount =>{
         cartContext.addItem({
             id:props.id,
